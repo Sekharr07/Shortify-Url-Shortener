@@ -1,16 +1,48 @@
-# React + Vite
+# Shortify 🚀
+A simple URL shortener with QR code generation.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features ✨
+- Shorten long URLs via backend API
+- Generate and download QR codes
+- Copy short link to clipboard
+- Retro pixel UI (customizable)
 
-Currently, two official plugins are available:
+## Tech stack 🧭
+- Frontend: React, Vite
+- HTTP: axios
+- Database: MongoDB
+- QR generation: qrcode (and/or react-qr-code)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Prerequisites ✅
+- Node.js (16+ recommended)
+- NPM or Yarn
+- Running backend that exposes a /shorten endpoint and connects to MongoDB
 
-## React Compiler
+## Setup (Windows) 🛠️
+Open PowerShell or CMD:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Install frontend deps
+   - cd c:\Users\User\OneDrive\Desktop\Url-Shortner\frontend
+   - npm install
 
-## Expanding the ESLint configuration
+2. Set env variable (example)
+   - Windows (PowerShell):
+     $env:VITE_BACKEND_URL="http://localhost:4000"
+   - Or create a .env file at frontend root:
+     VITE_BACKEND_URL=http://localhost:4000
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Run dev server
+   - npm run dev
+
+Make sure your backend is running and its MongoDB connection is configured (e.g. MONGO_URI in backend env). The frontend posts to `${VITE_BACKEND_URL}/shorten` with payload: { originalUrl } and expects { shortUrl } in response.
+
+## Usage 🧾
+- Paste a long URL, click "Shorten".
+- Click "Copy" to copy the short link.
+- Download or open the generated QR code.
+
+## Contributing 🤝
+PRs welcome. Keep changes scoped to the frontend UI unless coordinating backend/database changes.
+
+## Author ✍️
+Sayan Sekhar Ghosh — IIT (ISM) Dhanbad
